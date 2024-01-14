@@ -15,9 +15,7 @@ def do_clean(number=0):
     number is 2, keeps the most and second-most recent archives,
     etc.
     """
-    if int(number) == 0:
-        number = 1
-    number = int(number) + 1
+    number = 1 if int(number) == 0 else int(number)
 
     local('cd versions ; ls -t | tail -n +{} | xargs rm -rf'.format(number))
     with cd("/data/web_static/releases"):
