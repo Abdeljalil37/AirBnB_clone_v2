@@ -3,7 +3,7 @@
 import os
 from fabric.api import *
 
-env.hosts = ["34.75.35.59", "3.238.29.119"]
+env.hosts = ["52.201.190.48", "54.90.56.0"]
 
 
 def do_clean(number=0):
@@ -16,15 +16,13 @@ def do_clean(number=0):
     number is 2, keeps the most and second-most recent archives,
     etc.
     """
-    number = 1 if int(number) == 0 else int(number)
+    number = int(number)
 
-    archives = sorted(os.listdir("versions"))
-    [archives.pop() for i in range(number)]
-    with lcd("versions"):
-        [local("rm ./{}".format(a)) for a in archives]
+    if number == 0:
+        number = 2
+    else:
+        number += 1
 
-    with cd("/data/web_static/releases"):
-        archives = run("ls -tr").split()
-        archives = [a for a in archives if "web_static_" in a]
-        [archives.pop() for i in range(number)]
-        [run("rm -rf ./{}".format(a)) for a in archives]
+    local('cd versions ; ls -t | tail -n +{} | xargs rm -rf'.format(number))
+    path = '/data/web_static/releases'
+    run('cd {} ; ls -t | tail -n +{} | xargs rm -rf'.format(path, number))
