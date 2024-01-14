@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Create and distributes an archive to web servers"""
 from os.path import isdir
-import os.path 
+import os.path
 import time
 from fabric.api import local
 from fabric.operations import env, put, run
