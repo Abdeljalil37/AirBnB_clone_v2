@@ -6,6 +6,7 @@ from urllib.parse import unquote
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     return 'Hello HBNB!'
