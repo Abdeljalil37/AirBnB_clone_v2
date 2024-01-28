@@ -10,10 +10,11 @@ def index():
     """ print Hello HBNB! """
     return "Hello HBNB!"
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """ print HBNB! """
-    return "HBNB!"
+    """ print HBNB """
+    return "HBNB"
 
 
 if __name__ == '__main__':
