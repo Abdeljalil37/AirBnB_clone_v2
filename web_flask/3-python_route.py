@@ -33,7 +33,7 @@ def python_route(text='is cool'):
     """ print python followed by the given text
     with default value of text: is cool """
     value = unquote(text.replace('_', ' '))
-    return 'python {}'.format(value)
+    return 'Python {}'.format(value)
 
 
 if __name__ == '__main__':
