@@ -50,7 +50,7 @@ def number_template_route(n):
 
 @app.route('/number_odd_or_even/<int:n>')
 def number_odd_or_even(n):
-    """ print the given number followed by 'is a number' """
+    """ Show if the number is even or odd """
     if n % 2 == 0:
         value = 'even'
     else:
@@ -60,15 +60,6 @@ def number_odd_or_even(n):
         number=int(n),
         value=value)
 
-
-@app.route('/states_list')
-def states_list():
-    """ print the states """
-    from models import storage
-    from models.state import State
-    states = storage.all(State)
-    return render_template('7-states_list.html', states=states)
-    return render_template('5-number.html', number=int(n))
 
 
 if __name__ == '__main__':
