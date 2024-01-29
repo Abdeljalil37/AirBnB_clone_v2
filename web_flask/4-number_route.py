@@ -30,9 +30,15 @@ def c_route(text):
 @app.route('/python/<text>')
 def python_route(text='is cool'):
     """ print python followed by the given text
-    with default value of text: is cool """
+    with default value of text: 'is cool' """
     value = text.replace('_', ' ')
     return 'Python {}'.format(value)
+
+
+@app.route('/number/<n>')
+def number_route(n):
+    """ print the given number followed by 'is a number' """
+    return '{} is a number'.format(int(n))
 
 
 if __name__ == '__main__':
