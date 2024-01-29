@@ -45,7 +45,7 @@ def number_route(n):
 @app.route('/number_template/<int:n>')
 def number_template_route(n):
     """ print the given number followed by 'is a number' """
-    return render_template('5-number_template.html', number=int(n))
+    return render_template('5-number.html', number=int(n))
 
 
 if __name__ == '__main__':
